@@ -1,3 +1,8 @@
+//comision 2
+//Rocío Belén Amaya, legajo 118957/6
+//"Renata Bach, legajo 118966/7
+//https://youtu.be/ihNIJs_94-E
+
 let imagenes = [
   'data/inicio.jpg', 'data/logoAudio.png', 'data/img2.jpg', 'data/img3.jpg', 'data/img4y5.jpg', 'data/img6.jpg',
   'data/img7final1.jpg', 'data/img8.jpg', 'data/img9.jpg', 'data/img10.jpg', 'data/img11.jpg',
@@ -5,12 +10,15 @@ let imagenes = [
 ];
 
 let guionTXT;
+let sonido;
 
 function preload () {
   for (let i = 0; i < imagenes.length; i++) {
     imagenes[i] = loadImage(imagenes[i]);
   }
-  guionTXT=loadStrings ('/data/textos.txt');
+  soundFormats ('mp3');
+  sonido= loadSound ("data/sonido.mp3");
+  //guionTXT=loadStrings ('/data/textos.txt');
 }
 
 function setup() {
@@ -32,4 +40,25 @@ function draw() {
 function mousePressed() {
 
   funcionamientoBotones ();
+  
+  // activar el sonido con la imagen
+  if (estado === "inicio" && mouseX > width - 50 && mouseX < width - 20 && mouseY > 10 && mouseY < 40) {
+    if (!sonido.isPlaying()) {
+      sonido.play();
+    } else {
+      sonido.stop();
+    }
+  }
+}
+
+function keyPressed() {
+  // Si presionas la tecla s, el sonido se activa o desactiva
+  if (key === 's' || 'S') {
+    if (!sonido.isPlaying()) {
+      sonido.play();
+    } else {
+      sonido.stop();
+    }
+  }
+}
 }
