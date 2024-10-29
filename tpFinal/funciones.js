@@ -2,19 +2,22 @@ let estado; // Variable para el estado globalmente
 let botonAncho = 100; // Ancho del botón
 let botonAlto = 50;   // Alto del botón
 let botonX, botonY;    // Posiciones del primer botón
-let boton2X, boton2Y;  // Posiciones del segundo botón (solo para otros estados)
+let boton2X, boton2Y;  // Posiciones del segundo botón
 
+
+/*
 function textosTXT (posX, posY, numLinea) {
-  fill (0);
-  let lineaCompleta = guionTXT [numLinea];
-  let textosDivididos= split (lineaCompleta, ': ') ;
-  text (textosDivididos [0], posX, posY);
-  text (textosDivididos [1], posX+70, posY);
-
-  for (let i=0; i < guionTXT.length; i++) {
-    text (guionTXT [i], 30, 30 + (30*i));
-  }
-}
+ fill (0);
+ let lineaCompleta = guionTXT [numLinea];
+ let textosDivididos= split (lineaCompleta, ': ') ;
+ text (textosDivididos [0], posX, posY);
+ text (textosDivididos [1], posX+70, posY);
+ 
+ for (let i=0; i < guionTXT.length; i++) {
+ text (guionTXT [i], 30, 30 + (30*i));
+ }
+ }
+ */
 
 
 
@@ -31,530 +34,411 @@ function pantallaInicio() {
   text("secreta, y llegar a ", 20, 110);
   text("tiempo al concurso ", 20, 140);
   text("de cocina!", 20, 170);
-/*
-  botonAncho = 100;
-  botonAlto = 50;
 
-  // Centrar el botón de "Iniciar"
+  // Botón "Iniciar"
   botonX = width / 2 - botonAncho / 2;
-  botonY = height / 2 - botonAlto - 20; // Colocarlo en el centro vertical
-
-  // Centrar el botón de "Creditos" justo debajo de "Iniciar"
-  boton2X = width / 2 - botonAncho / 2;
-  boton2Y = botonY + botonAlto + 20; // Alinearlo debajo del botón "Iniciar"
-
-  // Dibujo del botón "Iniciar"
+  botonY = height / 2 - botonAlto - 20;
   fill(245, 238, 22);
-  rect(botonX, botonY, botonAncho, botonAlto);
+  dibujarBoton(botonX, botonY, botonAncho, botonAlto, "Iniciar");
 
-  fill(0);
-  textSize(30);
-  text("Iniciar", botonX + 10, botonY + 35);
-
-  // Dibujo del botón "Creditos"
-  fill(255);
-  rect(boton2X, boton2Y, botonAncho, botonAlto);
-
-  fill(0);
-  textSize(11);
-  text("Creditos", boton2X + 25, boton2Y + 30);
-  */
-  dibujarBoton(width / 2 - tam / 2, height / 2 - tam2 - 20, 100, 50, iniciar)
+  // Botón "Créditos"
+  boton2X = width / 2 - botonAncho / 2;
+  boton2Y = botonY + botonAlto + 20;
+  fill (0);
+  dibujarBoton(boton2X, boton2Y, botonAncho, botonAlto, "Créditos");
 }
 
 function pantallaDos() {
-  image(imagenes [2], 0, 0, width, height);
+  image(imagenes[2], 0, 0, width, height);
 
-  fill (124, 135, 255);
-  rect (10, 10, 500, 50, 20);
-  fill (0);
-  textSize(10);
-  text ("¡Hoy es el gran dia! Voy a conseguir mi licencia deconducir  y llegaré justo a tiempo para el concurso! ", 20, 30);
-
-  textSize (18);
-  //textosTXT (30, 30, 1);
-
-
-  // boton sig
-  boton2X = width-width/4;
-  boton2Y = height-100;
-  botonAncho = 100;
-  botonAlto = 50;
-
-  // boton continuar
-  fill(255);
-  rect(boton2X, boton2Y, botonAncho, botonAlto);
+  fill(124, 135, 255);
+  rect(10, 10, 500, 50, 20);
   fill(0);
-  textSize(11);
-  text("Continuar", boton2X + 25, boton2Y + 30);
+  textSize(10);
+  text("¡Hoy es el gran día! Voy a conseguir mi licencia de conducir y llegaré justo a tiempo para el concurso!", 20, 30);
+
+  textSize(18);
+
+  // Parámetros para el botón "Continuar"
+  boton2X = width - width / 4;
+  boton2Y = height - 100;
+
+  // Llamada a la función dibujarBoton
+  dibujarBoton(boton2X, boton2Y, botonAncho, botonAlto, "Continuar");
 }
+
 
 
 function pantallaTres () {
-  image(imagenes [2], 0, 0, width, height);
-  image (imagenes [15], width-width/3, 100, 200, 200);
+  image(imagenes[2], 0, 0, width, height);
+  image(imagenes[15], width - width / 3, 100, 200, 200);
 
-  fill (124, 135, 255);
-  rect (10, 10, 500, 50, 20);
-  fill (0);
+  fill(124, 135, 255);
+  rect(10, 10, 500, 50, 20);
+  fill(0);
   textSize(10);
-  text ("llamada entrante", 20, 30);
+  text("llamada entrante", 20, 30);
 
-  // boton sig
-  boton2X = width-width/4;
-  boton2Y = height-100;
+  // Parámetros para el botón "Contestar"
+  boton2X = width - width / 4;
+  boton2Y = height - 100;
   botonAncho = 150;
   botonAlto = 50;
 
-
-  // boton continuar
-  fill(255);
-  rect(boton2X, boton2Y, botonAncho, botonAlto);
-  fill(0);
-  textSize(11);
-  text("Contestar", boton2X + 50, boton2Y + 30);
+  // Llamada a la función dibujarBoton
+  dibujarBoton(boton2X, boton2Y, botonAncho, botonAlto, "Contestar");
 }
 
 function pantallaCuatro () {
-  image(imagenes [3], 0, 0, width, height);
+  image(imagenes[3], 0, 0, width, height);
 
-  fill (124, 135, 255);
-  rect (10, 10, 500, 50, 20);
-  fill (0);
-  textSize(10);
-  text ("¡Bob estamos en problemas! Plankton ha robado la receta secreta!", 20, 30);
-
-
-  // boton sig
-  boton2X = width-width/4;
-  boton2Y = height-100;
-
-
-  // boton continuar
-  fill(255);
-  rect(boton2X, boton2Y, botonAncho, botonAlto);
+  fill(124, 135, 255);
+  rect(10, 10, 500, 50, 20);
   fill(0);
-  textSize(11);
-  text("Continuar", boton2X + 50, boton2Y + 30);
+  textSize(10);
+  text("¡Bob, estamos en problemas! Plankton ha robado la receta secreta!", 20, 30);
+
+  // Parámetros para el botón "Continuar"
+  boton2X = width - width / 4;
+  boton2Y = height - 100;
+  botonAncho = 150; // Asegúrate de definir el ancho
+  botonAlto = 50; // Asegúrate de definir la altura
+
+  // Llamada a la función dibujarBoton
+  dibujarBoton(boton2X, boton2Y, botonAncho, botonAlto, "Continuar");
 }
 
 function pantallaCinco () {
-  image(imagenes [4], 0, 0, width, height);
+  image(imagenes[4], 0, 0, width, height);
 
-  fill (124, 135, 255);
-  rect (10, 10, 500, 50, 20);
-  fill (0);
+  fill(124, 135, 255);
+  rect(10, 10, 500, 50, 20);
+  fill(0);
   textSize(10);
-  text ("¡Ay no! ¿Que hago ahora? Debo tomar una decisión inmediatamente", 20, 30);
+  text("¡Ay no! ¿Qué hago ahora? Debo tomar una decisión inmediatamente", 20, 30);
 
-  // boton ant
-  botonX = width / 4-100 ;
-  botonY = height-100;
-  // boton sig
-  boton2X = width-width/4;
-  boton2Y = height-100;
+  botonX = width / 4 - 100;
+  botonY = height - 100;
+  botonAncho = 200;
+  botonAlto = 50;
 
-  fill(255);
-  rect(botonX, botonY, botonAncho, botonAlto);
-  fill(0);
-  textSize(11);
-  text("Seguir con el plan de", botonX + 25, botonY + 20);
-  text("sacar la licencia.", botonX + 25, botonY + 40);
+  dibujarBoton(botonX, botonY, botonAncho, botonAlto, "Seguir con el plan de\nsacar la licencia.");
 
-  // boton continuar
-  fill(255);
-  rect(boton2X, boton2Y, botonAncho, botonAlto);
-  fill(0);
-  textSize(11);
-  text("No perder el tiempo e ir", boton2X + 25, boton2Y + 20);
-  text("corriendo tras Plankton", boton2X + 25, boton2Y + 40);
+  boton2X = width - width / 4;
+  boton2Y = height - 100;
+
+  dibujarBoton(boton2X, boton2Y, botonAncho, botonAlto, "No perder el tiempo e ir\ncorriendo tras Plankton");
 }
 
 function pantallaSeis () {
-  image(imagenes [2], 0, 0, width, height);
+  image(imagenes[2], 0, 0, width, height);
 
-  fill (124, 135, 255);
-  rect (10, 10, 500, 50, 20);
-  fill (0);
-  textSize(10);
-  text ("¡No hay tiempo que perder!", 20, 30);
-
-  // boton sig
-  boton2X = width-width/4;
-  boton2Y = height-100;
-
-
-  // boton continuar
-  fill(255);
-  rect(boton2X, boton2Y, botonAncho, botonAlto);
+  fill(124, 135, 255);
+  rect(10, 10, 500, 50, 20);
   fill(0);
-  textSize(11);
-  text("Continuar", boton2X + 50, boton2Y + 30);
+  textSize(10);
+  text("¡No hay tiempo que perder!", 20, 30);
+
+  boton2X = width - width / 4;
+  boton2Y = height - 100;
+  botonAncho = 150;
+  botonAlto = 50;
+
+  dibujarBoton(boton2X, boton2Y, botonAncho, botonAlto, "Continuar");
 }
 
 function pantallaSiete () {
-  image(imagenes [5], 0, 0, width, height);
+  image(imagenes[5], 0, 0, width, height);
 
-  fill (124, 135, 255);
-  rect (10, 10, 600, 50, 20);
-  fill (0);
+  fill(124, 135, 255);
+  rect(10, 10, 600, 50, 20);
+  fill(0);
   textSize(10);
-  text ("¡Qué sorpresa, Bob Esponja! Creí que tardarías más. No importa, ya es demasiado tarde. ¿Como planeas detenerme sin licencia?", 20, 30);
+  text("¡Qué sorpresa, Bob Esponja! Creí que tardarías más. No importa, ya es demasiado tarde. ¿Como planeas detenerme sin licencia?", 20, 30);
 
-  // boton ant
-  botonX = width / 4-100 ;
+  // Parámetros para el botón regresar
+  botonX = width / 4 - 100;
   botonY = 70;
-  // boton sig
-  boton2X = width-width/4;
+  botonAncho = 200;
+  botonAlto = 50;
+
+  dibujarBoton(botonX, botonY, botonAncho, botonAlto, "Proponerle ir al concurso\nde cocina juntos");
+
+  // Parámetros para el botón continuar
+  boton2X = width - width / 4;
   boton2Y = 70;
 
-  // boton regresar
-  fill(255);
-  rect(botonX, botonY, botonAncho, botonAlto);
-  fill(0);
-  textSize(11);
-  text("Proponerle ir al concurso", botonX + 25, botonY + 20);
-  text("de cocina juntos", botonX + 25, botonY + 40);
-
-  // boton continuar
-  fill(255);
-  rect(boton2X, boton2Y, botonAncho, botonAlto);
-  fill(0);
-  textSize(11);
-  text("Intentar robarle la receta", boton2X + 20, boton2Y + 30);
+  dibujarBoton(boton2X, boton2Y, botonAncho, botonAlto, "Intentar robarle la receta");
 }
 
 function pantallaOcho () {
-  image(imagenes [5], 0, 0, width, height);
+  image(imagenes[5], 0, 0, width, height);
 
-  fill (124, 135, 255);
-  rect (10, 10, 500, 50, 20);
-  fill (0);
-  textSize(10);
-  text ("¡Ja! Buen intento, pero me quedaré la receta", 20, 30);
-
-  // boton sig
-  boton2X = width-width/4;
-  boton2Y = 70;
-
-  // boton continuar
-  fill(255);
-  rect(boton2X, boton2Y, botonAncho, botonAlto);
+  fill(124, 135, 255);
+  rect(10, 10, 500, 50, 20);
   fill(0);
-  textSize(11);
-  text("Continuar", boton2X + 50, boton2Y + 30);
+  textSize(10);
+  text("¡Ja! Buen intento, pero me quedaré la receta", 20, 30);
+
+  // Parámetros para el botón continuar
+  boton2X = width - width / 4;
+  boton2Y = 70;
+  botonAncho = 150;
+  botonAlto = 50;
+
+  //botón "Continuar"
+  dibujarBoton(boton2X, boton2Y, botonAncho, botonAlto, "Continuar");
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////FINAL MALO
 function pantallaNueve () {
-  image(imagenes [6], 0, 0, width, height);
+  image(imagenes[6], 0, 0, width, height);
 
-  fill (124, 135, 255);
-  rect (10, 10, 500, 50, 20);
-  fill (0);
+  fill(124, 135, 255);
+  rect(10, 10, 500, 50, 20);
+  fill(0);
   textSize(10);
-  text ("¡Intenta denuevo!", 20, 30);
+  text("¡Intenta de nuevo!", 20, 30);
 
-  // boton ant
-  botonX = width / 4-100 ;
+  // Parámetros para el botón regresar
+  botonX = width / 4 - 100;
   botonY = 70;
-  // boton sig
-  boton2X = width-width/4;
-  boton2Y = 70
+  botonAncho = 150; // Asegúrate de definir el ancho
+  botonAlto = 50; // Asegúrate de definir la altura
 
-  // boton regresar
-  fill(255);
-  rect(botonX, botonY, botonAncho, botonAlto);
-  fill(0);
-  textSize(11);
-  text("Intentar todo denuevo", botonX + 25, botonY + 30);
+  // Intentar todo de nuevo
+  dibujarBoton(botonX, botonY, botonAncho, botonAlto, "Intentar todo de nuevo");
 
-  // boton continuar
-  fill(255);
-  rect(boton2X, boton2Y, botonAncho, botonAlto);
-  fill(0);
-  textSize(11);
-  text("Volver a la elección", boton2X + 25, boton2Y + 20);
-  text("con Plankton", boton2X + 25, boton2Y + 40);
-}
-
-function pantallaDiez () {
-  image(imagenes [7], 0, 0, width, height);
-
-  fill (124, 135, 255);
-  rect (10, 10, 500, 50, 20);
-  fill (0);
-  textSize(10);
-  text ("¡Acepto! Buena suerte cocinando sin la receta", 20, 30);
-
-  // boton sig
-  boton2X = width-width/4;
+  // Parámetros para el botón continuar
+  boton2X = width - width / 4;
   boton2Y = 70;
 
-  // boton continuar
-  fill(255);
-  rect(boton2X, boton2Y, botonAncho, botonAlto);
-  fill(0);
-  textSize(11);
-  text("Continuar", boton2X + 50, boton2Y + 30);
+  //el botón volver con Plankton
+  dibujarBoton(boton2X, boton2Y, botonAncho, botonAlto, "Volver a la elección\ncon Plankton");
 }
 
-function pantallaOnce () {
-  image(imagenes [11], 0, 0, width, height);
+function pantallaDiez() {
+  image(imagenes[7], 0, 0, width, height);
 
-  fill (124, 135, 255);
-  rect (10, 10, 500, 50, 20);
-  fill (0);
+  fill(124, 135, 255);
+  rect(10, 10, 500, 50, 20);
+  fill(0);
   textSize(10);
-  text ("Llegué justo a tiempo al concurso, ahora debo de competir contra Plankton", 20, 30);
+  text("¡Acepto! Buena suerte cocinando sin la receta", 20, 30);
 
-  // boton sig
-  boton2X = width-width/4;
-  boton2Y = height-100;
+  boton2X = width - width / 4;
+  boton2Y = 70;
+  botonAncho = 150;
+  botonAlto = 50;
 
-  // boton continuar
-  fill(255);
-  rect(boton2X, boton2Y, botonAncho, botonAlto);
-  fill(0);
-  textSize(11);
-  text("Continuar", boton2X + 50, boton2Y + 30);
+  dibujarBoton(boton2X, boton2Y, botonAncho, botonAlto, "Continuar");
 }
 
-function pantallaDoce () {
-  image(imagenes [12], 0, 0, width, height);
+function pantallaOnce() {
+  image(imagenes[11], 0, 0, width, height);
 
-  // boton sig
-  boton2X = width-width/4;
-  boton2Y = height-100;
-
-  // boton continuar
-  fill(255);
-  rect(boton2X, boton2Y, botonAncho, botonAlto);
+  fill(124, 135, 255);
+  rect(10, 10, 500, 50, 20);
   fill(0);
-  textSize(11);
-  text("Siguiente", boton2X + 50, boton2Y + 30);
-}
-
-function pantallaTrece () {
-  image(imagenes [12], 0, 0, width, height);
-
-  fill (124, 135, 255);
-  rect (10, 10, 500, 50, 20);
-  fill (0);
   textSize(10);
-  text ("¿Qué debería de hacer?", 20, 30);
+  text("Llegué justo a tiempo al concurso, ahora debo de competir contra Plankton", 20, 30);
 
-  // boton ant
-  botonX = width / 4-100 ;
-  botonY = height-100;
-  // boton sig
-  boton2X = width-width/4;
-  boton2Y = height-100;
+  // Parámetros para el botón continuar
+  boton2X = width - width / 4;
+  boton2Y = height - 100;
+  botonAncho = 150;
+  botonAlto = 50;
 
-  // boton regresar
-  fill(255);
-  rect(botonX, botonY, botonAncho, botonAlto);
-  fill(0);
-  textSize(11);
-  text("Inventar sobre la marcha", botonX + 15, botonY + 30);
-
-  // boton continuar
-  fill(255);
-  rect(boton2X, boton2Y, botonAncho, botonAlto);
-  fill(0);
-  textSize(11);
-  text("Intentar recordar la receta", boton2X + 10, boton2Y + 30);
+  dibujarBoton(boton2X, boton2Y, botonAncho, botonAlto, "Continuar");
 }
 
-function pantallaCatorce () {
-  image(imagenes [13], 0, 0, width, height);
+function pantallaDoce() {
+  image(imagenes[12], 0, 0, width, height);
 
-  fill (124, 135, 255);
-  rect (10, 10, 500, 50, 20);
-  fill (0);
+  boton2X = width - width / 4;
+  boton2Y = height - 100;
+  botonAncho = 150;
+  botonAlto = 50;
+
+  dibujarBoton(boton2X, boton2Y, botonAncho, botonAlto, "Siguiente");
+}
+
+function pantallaTrece() {
+  image(imagenes[12], 0, 0, width, height);
+
+  fill(124, 135, 255);
+  rect(10, 10, 500, 50, 20);
+  fill(0);
   textSize(10);
-  text ("Lograste recordar la receta", 20, 30);
+  text("¿Qué debería de hacer?", 20, 30);
 
-  // boton sig
-  boton2X = width-width/4;
-  boton2Y = height-100;
+  botonX = width / 4 - 100;
+  botonY = height - 100;
+  botonAncho = 150;
+  botonAlto = 50;
 
-  // boton continuar
-  fill(255);
-  rect(boton2X, boton2Y, botonAncho, botonAlto);
-  fill(0);
-  textSize(11);
-  text("Continuar", boton2X + 50, boton2Y + 30);
+  dibujarBoton(botonX, botonY, botonAncho, botonAlto, "Inventar sobre la marcha");
+
+  boton2X = width - width / 4;
+  boton2Y = height - 100;
+
+  dibujarBoton(boton2X, boton2Y, botonAncho, botonAlto, "Intentar recordar la receta");
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// CAMBIAR IMAGEN POR FINAL BUENO
-function pantallaQuince () {
-  image(imagenes [13], 0, 0, width, height);
+function pantallaCatorce() {
+  image(imagenes[13], 0, 0, width, height);
 
-  fill (124, 135, 255);
-  rect (10, 10, 500, 50, 20);
-  fill (0);
+  fill(124, 135, 255);
+  rect(10, 10, 500, 50, 20);
+  fill(0);
   textSize(10);
-  text ("¡Felicidades! Ganaste el primer puesto y Plankton te devolvió la receta.", 20, 30);
+  text("Lograste recordar la receta", 20, 30);
 
-  // boton sig
-  boton2X = width-width/4;
-  boton2Y = height-100;
+  boton2X = width - width / 4;
+  boton2Y = height - 100;
+  botonAncho = 150;
+  botonAlto = 50;
 
-
-  // boton continuar
-  fill(255);
-  rect(boton2X, boton2Y, botonAncho, botonAlto);
-  fill(0);
-  textSize(11);
-  text("Volver al inicio", boton2X + 40, boton2Y + 30);
+  dibujarBoton(boton2X, boton2Y, botonAncho, botonAlto, "Continuar");
 }
 
-function pantallaDieciseis () {
-  image(imagenes [14], 0, 0, width, height);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////// FINAL BUENO
+function pantallaQuince() {
+  image(imagenes[13], 0, 0, width, height);
 
-  fill (124, 135, 255);
-  rect (10, 10, 500, 50, 20);
-  fill (0);
+  fill(124, 135, 255);
+  rect(10, 10, 500, 50, 20);
+  fill(0);
   textSize(10);
-  text ("No recordaste la receta", 20, 30);
+  text("¡Felicidades! Ganaste el primer puesto y Plankton te devolvió la receta.", 20, 30);
 
-  // boton sig
-  boton2X = width-width/4;
-  boton2Y = height-100;
+  boton2X = width - width / 4;
+  boton2Y = height - 100;
+  botonAncho = 150;
+  botonAlto = 50;
 
-  // boton continuar
-  fill(255);
-  rect(boton2X, boton2Y, botonAncho, botonAlto);
-  fill(0);
-  textSize(11);
-  text("Continuar", boton2X + 50, boton2Y + 30);
+  //Volver al inicio
+  dibujarBoton(boton2X, boton2Y, botonAncho, botonAlto, "Volver al inicio");
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// CAMBIAR IMAGEN POR FINAL MALO 2
-function pantallaDiecisiete () {
-  image(imagenes [14], 0, 0, width, height);
+function pantallaDieciseis() {
+  image(imagenes[14], 0, 0, width, height);
 
-  fill (124, 135, 255);
-  rect (10, 10, 500, 50, 20);
-  fill (0);
+  fill(124, 135, 255);
+  rect(10, 10, 500, 50, 20);
+  fill(0);
   textSize(10);
-  text ("Trataste de inventar una receta y salió fatal. Plankton se quedó con el primer puesto y con la receta", 20, 30);
+  text("No recordaste la receta", 20, 30);
 
-  // boton sig
-  boton2X = width-width/4;
-  boton2Y = height-100;
+  boton2X = width - width / 4;
+  boton2Y = height - 100;
+  botonAncho = 150;
+  botonAlto = 50;
 
-  // boton continuar
-  fill(255);
-  rect(boton2X, boton2Y, botonAncho, botonAlto);
-  fill(0);
-  textSize(11);
-  text("Volver al inicio", boton2X + 40, boton2Y + 30);
+  dibujarBoton(boton2X, boton2Y, botonAncho, botonAlto, "Continuar");
 }
 
-function pantallaDieciocho () {
-  image(imagenes [2], 0, 0, width, height);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// FINAL MALO 2
+function pantallaDiecisiete() {
+  image(imagenes[14], 0, 0, width, height);
 
-  fill (124, 135, 255);
-  rect (10, 10, 500, 50, 20);
-  fill (0);
+  fill(124, 135, 255);
+  rect(10, 10, 500, 50, 20);
+  fill(0);
+  textSize(14);
+  text("Trataste de inventar una receta y salió fatal. Plankton se quedó con el primer puesto y con la receta", 20, 30);
+
+  boton2X = width - width / 4;
+  boton2Y = height - 100;
+  botonAncho = 150;
+  botonAlto = 50;
+
+  dibujarBoton(boton2X, boton2Y, botonAncho, botonAlto, "Volver al inicio");
+}
+
+function pantallaDieciocho() {
+  image(imagenes[2], 0, 0, width, height);
+
+  fill(124, 135, 255);
+  rect(10, 10, 500, 50, 20);
+  fill(0);
   textSize(10);
-  text ("Si obtengo la licencia llegaré más rápido a detener a Plankton", 20, 30);
+  text("Si obtengo la licencia llegaré más rápido a detener a Plankton", 20, 30);
 
-  // boton sig
-  boton2X = width-width/4;
-  boton2Y = height-100;
+  boton2X = width - width / 4;
+  boton2Y = height - 100;
+  botonAncho = 150;
+  botonAlto = 50;
 
-  // boton continuar
-  fill(255);
-  rect(boton2X, boton2Y, botonAncho, botonAlto);
-  fill(0);
-  textSize(11);
-  text("Continuar", boton2X + 50, boton2Y + 30);
+  dibujarBoton(boton2X, boton2Y, botonAncho, botonAlto, "Continuar");
 }
 
-function pantallaDiecinueve () {
-  image(imagenes [8], 0, 0, width, height);
+function pantallaDiecinueve() {
+  image(imagenes[8], 0, 0, width, height);
 
-  // boton ant
-  botonX = width / 4-100 ;
-  botonY = height-100;
-  // boton sig
-  boton2X = width-width/4;
-  boton2Y = height-100;
+  botonX = width / 4 - 100;
+  botonY = height - 100;
+  botonAncho = 150;
+  botonAlto = 50;
 
-  // boton regresar
-  fill(255);
-  rect(botonX, botonY, botonAncho, botonAlto);
-  fill(0);
-  textSize(11);
-  text("Desaprobar", botonX + 50, botonY + 30);
+  //Desaprobar
+  dibujarBoton(botonX, botonY, botonAncho, botonAlto, "Desaprobar");
 
-  // boton continuar
-  fill(255);
-  rect(boton2X, boton2Y, botonAncho, botonAlto);
-  fill(0);
-  textSize(11);
-  text("Aprobar", boton2X + 50, boton2Y + 30);
+  boton2X = width - width / 4;
+  boton2Y = height - 100;
+
+  // Aprobar
+  dibujarBoton(boton2X, boton2Y, botonAncho, botonAlto, "Aprobar");
 }
 
-function pantallaVeinte () {
-  image(imagenes [10], 0, 0, width, height);
+function pantallaVeinte() {
+  image(imagenes[10], 0, 0, width, height);
 
-  fill (124, 135, 255);
-  rect (10, 10, 500, 50, 20);
-  fill (0);
+  fill(124, 135, 255);
+  rect(10, 10, 500, 50, 20);
+  fill(0);
   textSize(10);
-  text ("¡Aprobaste! Maneja rápido hasta el concurso, ¡Seguro Plankton estará allí!", 20, 30);
+  text("¡Aprobaste! Maneja rápido hasta el concurso, ¡Seguro Plankton estará allí!", 20, 30);
 
-  // boton sig
-  boton2X = width-width/4;
-  boton2Y = height-100;
+  boton2X = width - width / 4;
+  boton2Y = height - 100;
+  botonAncho = 150;
+  botonAlto = 50;
 
-  // boton continuar
-  fill(255);
-  rect(boton2X, boton2Y, botonAncho, botonAlto);
-  fill(0);
-  textSize(11);
-  text("siguiente", boton2X + 40, boton2Y + 30);
+  dibujarBoton(boton2X, boton2Y, botonAncho, botonAlto, "Siguiente");
 }
 
-function pantallaVeintiuno () {
-  image(imagenes [9], 0, 0, width, height);
+function pantallaVeintiuno() {
+  image(imagenes[9], 0, 0, width, height);
 
-  fill (124, 135, 255);
-  rect (10, 10, 500, 50, 20);
-  fill (0);
-  textSize(10);
-  text ("Chocaste y desaprobaste. ¡Ve corriendo tras Plankton!", 20, 30);
-
-  // boton sig
-  boton2X = width-width/4;
-  boton2Y = height-100;
-
-  // boton continuar
-  fill(255);
-  rect(boton2X, boton2Y, botonAncho, botonAlto);
+  fill(124, 135, 255);
+  rect(10, 10, 500, 50, 20);
   fill(0);
-  textSize(11);
-  text("siguiente", boton2X + 40, boton2Y + 30);
+  textSize(10);
+  text("Chocaste y desaprobaste. ¡Ve corriendo tras Plankton!", 20, 30);
+
+  boton2X = width - width / 4;
+  boton2Y = height - 100;
+  botonAncho = 150;
+  botonAlto = 50;
+
+  dibujarBoton(boton2X, boton2Y, botonAncho, botonAlto, "Siguiente");
 }
 
 function pantallaCreditos() {
   background(124, 135, 255);
 
- 
+
   fill(255, 240, 64);
   let rectX = 50;
   let rectY = 50;
-  let rectAncho = width - 100; 
-  let rectAlto = height / 2; 
+  let rectAncho = width - 100;
+  let rectAlto = height / 2;
   rect(rectX, rectY, rectAncho, rectAlto, 20);
 
-  
+
   fill(0);
-  textSize(24); 
+  textSize(24);
   push ();
   textAlign(CENTER, CENTER);
   text("Creado por:", rectX + rectAncho / 2, rectY + rectAlto / 4);
@@ -581,12 +465,12 @@ function pantallaCreditos() {
   pop ();
 }
 
-function dibujarBoton(x, y, tam1, tam2, texto) {
-  fill(50, 220, 50);
-  rect(x, y, tam1, tam2);
-  textSize(20);
-  fill(50);
-  text(texto, x + 10, y + 30);
+function dibujarBoton(posX, posY, ancho, alto, texto) {
+  fill(255);
+  rect(posX, posY, ancho, alto);
+  fill(0);
+  textSize(11);
+  text(texto, posX + 10, posY + 30);
 }
 
 
@@ -645,7 +529,8 @@ function funcionamientoBotones () {
   if (estado === "inicio") {
     if (mouseX > botonX && mouseX < botonX + botonAncho && mouseY > botonY && mouseY < botonY + botonAlto) {
       estado = "dos";
-    } if (mouseX > boton2X && mouseX < boton2X + botonAncho && mouseY > boton2Y && mouseY < boton2Y + botonAlto) {
+    }
+    if (mouseX > boton2X && mouseX < boton2X + botonAncho && mouseY > boton2Y && mouseY < boton2Y + botonAlto) {
       estado = "creditos";
     }
   } else if (estado === "dos") {
